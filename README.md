@@ -104,6 +104,37 @@ Key features of the solution:
 Warning: It's crucial not to change the page order or flip each page individually between scans. Simply flip the entire
 bundle together.
 
+## Warnings
+
+Please read the following warnings carefully to ensure the script works correctly:
+
+1. Do not miss any pages: Ensure that every page of your document is scanned, including blank pages. The algorithm
+   relies on the exact page count to work correctly.
+
+2. Do not flip individual pages: When switching from scanning odd pages to even pages, flip the entire stack of papers
+   together. Do not flip or rearrange individual pages.
+
+3. Maintain page order: Do not change the order of pages at any point during the scanning process. The original document
+   order must be preserved.
+
+4. Include blank pages: If your document has blank pages (e.g., the last page is blank), make sure to scan these as
+   well. Blank pages are crucial for maintaining the correct page count and order.
+
+5. Avoid manual reordering: Do not attempt to manually reorder the pages before or after scanning. The script is
+   designed to work with the specific order produced by the two-pass scanning process.
+
+6. Consistent scanning direction: Ensure that you feed the papers into the ADF in the same direction for both scanning
+   passes. The top of the document should enter the ADF first in both passes.
+
+7. Double-check page count: Before running the script, verify that the number of pages in your scanned PDF matches
+   exactly twice the number of sheets in your original document.
+
+8. Handle with care: Be gentle when handling the paper stack between scans to avoid accidentally changing the order or
+   orientation of the pages.
+
+Failure to follow these warnings may result in incorrectly ordered pages in the final PDF, which may require manual
+correction or rescanning of the entire document.
+
 ## Algorithm Explanation
 
 The reordering algorithm works as follows:
@@ -135,37 +166,6 @@ Output PDF: [1, 2, 3, 4, 5, 6]
 
 This process takes the oddly-ordered pages from the input PDF and rearranges them into the correct sequence in the
 output PDF.
-
-## Warnings
-
-Please read the following warnings carefully to ensure the script works correctly:
-
-1. Do not miss any pages: Ensure that every page of your document is scanned, including blank pages. The algorithm
-   relies on the exact page count to work correctly.
-
-2. Do not flip individual pages: When switching from scanning odd pages to even pages, flip the entire stack of papers
-   together. Do not flip or rearrange individual pages.
-
-3. Maintain page order: Do not change the order of pages at any point during the scanning process. The original document
-   order must be preserved.
-
-4. Include blank pages: If your document has blank pages (e.g., the last page is blank), make sure to scan these as
-   well. Blank pages are crucial for maintaining the correct page count and order.
-
-5. Avoid manual reordering: Do not attempt to manually reorder the pages before or after scanning. The script is
-   designed to work with the specific order produced by the two-pass scanning process.
-
-6. Consistent scanning direction: Ensure that you feed the papers into the ADF in the same direction for both scanning
-   passes. The top of the document should enter the ADF first in both passes.
-
-7. Double-check page count: Before running the script, verify that the number of pages in your scanned PDF matches
-   exactly twice the number of sheets in your original document.
-
-8. Handle with care: Be gentle when handling the paper stack between scans to avoid accidentally changing the order or
-   orientation of the pages.
-
-Failure to follow these warnings may result in incorrectly ordered pages in the final PDF, which may require manual
-correction or rescanning of the entire document.
 
 ## Using Brother iPrint&Scan App
 
