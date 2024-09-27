@@ -1,4 +1,4 @@
-# Brother DCP-T820DW PDF Page Reordering Tool
+# Brother DCP-T820DW Non-Duplex Solution: ADF Scanning Hack and Page Reordering Script
 
 ## Problem Statement
 
