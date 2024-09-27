@@ -35,38 +35,6 @@ Key features of the solution:
 3. Creates a new PDF with pages in the correct reading order.
 4. Provides a simple command-line interface for easy use.
 
-## Algorithm Explanation
-
-The reordering algorithm works as follows:
-
-1. Read the input PDF.
-2. Calculate the total number of pages and split them into two halves.
-3. Create a new PDF.
-4. Iterate through the pages:
-    - Add odd pages in order from the first half of the document.
-    - Add even pages in reverse order from the second half of the document.
-5. Save the new, correctly ordered PDF.
-
-Here's a visual representation of the process:
-
-```
-Input PDF:  [1, 3, 5, 6, 4, 2]
-                 |
-                 v
-Split in half: [1, 3, 5] [6, 4, 2]
-                 |         |
-                 v         v
-Reorder:    [1,     3,     5    ]
-             |      |      |
-            [2,     4,     6    ]
-                 |
-                 v
-Output PDF: [1, 2, 3, 4, 5, 6]
-```
-
-This process takes the oddly-ordered pages from the input PDF and rearranges them into the correct sequence in the
-output PDF.
-
 ## Installation and Usage
 
 ### Prerequisites
@@ -135,6 +103,38 @@ output PDF.
 
 Warning: It's crucial not to change the page order or flip each page individually between scans. Simply flip the entire
 bundle together.
+
+## Algorithm Explanation
+
+The reordering algorithm works as follows:
+
+1. Read the input PDF.
+2. Calculate the total number of pages and split them into two halves.
+3. Create a new PDF.
+4. Iterate through the pages:
+    - Add odd pages in order from the first half of the document.
+    - Add even pages in reverse order from the second half of the document.
+5. Save the new, correctly ordered PDF.
+
+Here's a visual representation of the process:
+
+```
+Input PDF:  [1, 3, 5, 6, 4, 2]
+                 |
+                 v
+Split in half: [1, 3, 5] [6, 4, 2]
+                 |         |
+                 v         v
+Reorder:    [1,     3,     5    ]
+             |      |      |
+            [2,     4,     6    ]
+                 |
+                 v
+Output PDF: [1, 2, 3, 4, 5, 6]
+```
+
+This process takes the oddly-ordered pages from the input PDF and rearranges them into the correct sequence in the
+output PDF.
 
 ## Warnings
 
