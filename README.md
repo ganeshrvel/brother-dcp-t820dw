@@ -35,104 +35,6 @@ Key features of the solution:
 3. Creates a new PDF with pages in the correct reading order.
 4. Provides a simple command-line interface for easy use.
 
-## Scanning Process
-
-### First Pass (Odd Pages)
-
-1. Place your multi-page document in the ADF with the odd-numbered pages facing down. This means the even pages will be
-   facing up.
-2. The top side of your document stack should go into the ADF first.
-3. Set up your scan settings (resolution, color mode, etc.) as desired.
-4. Initiate the scan. This will scan all odd-numbered pages (1, 3, 5, etc.).
-
-### Second Pass (Even Pages)
-
-1. Once the first pass is complete, take the entire stack of papers and flip it over as a bundle. Do not change the
-   order of the pages or flip individual pages.
-2. Place the flipped stack back in the ADF. Now the even-numbered pages will be facing down.
-3. The top side of your flipped document stack (which was previously the bottom) should go into the ADF first.
-4. Initiate the scan again. This will scan all even-numbered pages in reverse order (6, 4, 2, etc.).
-
-Warning: It's crucial not to change the page order or flip each page individually between scans. Simply flip the entire
-bundle together.
-
-## Warnings
-
-Please read the following warnings carefully to ensure the script works correctly:
-
-1. Do not miss any pages: Ensure that every page of your document is scanned, including blank pages. The algorithm
-   relies on the exact page count to work correctly.
-
-2. Do not flip individual pages: When switching from scanning odd pages to even pages, flip the entire stack of papers
-   together. Do not flip or rearrange individual pages.
-
-3. Maintain page order: Do not change the order of pages at any point during the scanning process. The original document
-   order must be preserved.
-
-4. Include blank pages: If your document has blank pages (e.g., the last page is blank), make sure to scan these as
-   well. Blank pages are crucial for maintaining the correct page count and order.
-
-5. Avoid manual reordering: Do not attempt to manually reorder the pages before or after scanning. The script is
-   designed to work with the specific order produced by the two-pass scanning process.
-
-6. Consistent scanning direction: Ensure that you feed the papers into the ADF in the same direction for both scanning
-   passes. The top of the document should enter the ADF first in both passes.
-
-7. Double-check page count: Before running the script, verify that the number of pages in your scanned PDF matches
-   exactly twice the number of sheets in your original document.
-
-8. Handle with care: Be gentle when handling the paper stack between scans to avoid accidentally changing the order or
-   orientation of the pages.
-
-Failure to follow these warnings may result in incorrectly ordered pages in the final PDF, which may require manual
-correction or rescanning of the entire document.
-
-## Using Brother iPrint&Scan App
-
-To scan your documents using the Brother DCP-T820DW printer and the Brother iPrint&Scan app, follow these steps:
-
-1. Launch the Brother iPrint&Scan app.
-
-2. On the main screen, click on the "Scan" icon.
-
-   <img src="images/app-screen-1.png" width="600" alt="Main Screen">
-
-3. In the Scan settings:
-    - Set "Scan Preset" to "Document"
-    - Choose your desired "Document Size" (e.g., A4)
-    - Set "Color Setting"
-    - Set "Resolution"
-
-   <img src="images/app-screen-2.png" width="600" alt="Scan Settings">
-
-4. Place your document in the Automatic Document Feeder (ADF) as described in the [Scanning Process](#scanning-process) section of this README.
-
-5. Click the "Scan" button to begin scanning. This is the [First Pass (Odd Pages)](#first-pass-odd-pages).
-
-6. After scanning, you'll see a preview of your scanned pages. The first pass will show odd-numbered pages (e.g., 1, 3, 5).
-
-7. For the [Second Pass (Even Pages)](#second-pass-even-pages), flip the entire document stack as described in the Scanning Process section. 
-
-8. You should click on "Add Pages" to start scanning the second pass.
-
-   <img src="images/app-screen-3.png" width="600" alt="Scanned Preview">
-
-9. After completing the second pass, you'll have additional pages (e.g., 6, 4, 2) added to your document. The complete file will now contain pages in the order: 1, 3, 5, 6, 4, 2. With both passes completed, click "Save to PC" in the right sidebar.
-
-10. In the save dialog:
-    - Enter a filename
-    - Ensure the file type is set to PDF
-    - Choose your desired save location
-
-    <img src="images/app-screen-4.png" width="600" alt="Save Dialog">
-
-11. Click "Save" to save your scanned document.
-
-After completing both scanning passes, you'll have one PDF file with pages in the order: 1, 3, 5, 6, 4, 2. You can then use the Python script provided in this project to reorder these pages into the correct sequence.
-
-Remember to follow the warnings and instructions in the [Scanning Process](#scanning-process) and [Warnings](#warnings) sections of this README to ensure the best results.
-
-
 ## Algorithm Explanation
 
 The reordering algorithm works as follows:
@@ -212,6 +114,110 @@ output PDF.
    ```
    pip install -r requirements.txt
    ```
+
+## Scanning Process
+
+### First Pass (Odd Pages)
+
+1. Place your multi-page document in the ADF with the odd-numbered pages facing down. This means the even pages will be
+   facing up.
+2. The top side of your document stack should go into the ADF first.
+3. Set up your scan settings (resolution, color mode, etc.) as desired.
+4. Initiate the scan. This will scan all odd-numbered pages (1, 3, 5, etc.).
+
+### Second Pass (Even Pages)
+
+1. Once the first pass is complete, take the entire stack of papers and flip it over as a bundle. Do not change the
+   order of the pages or flip individual pages.
+2. Place the flipped stack back in the ADF. Now the even-numbered pages will be facing down.
+3. The top side of your flipped document stack (which was previously the bottom) should go into the ADF first.
+4. Initiate the scan again. This will scan all even-numbered pages in reverse order (6, 4, 2, etc.).
+
+Warning: It's crucial not to change the page order or flip each page individually between scans. Simply flip the entire
+bundle together.
+
+## Warnings
+
+Please read the following warnings carefully to ensure the script works correctly:
+
+1. Do not miss any pages: Ensure that every page of your document is scanned, including blank pages. The algorithm
+   relies on the exact page count to work correctly.
+
+2. Do not flip individual pages: When switching from scanning odd pages to even pages, flip the entire stack of papers
+   together. Do not flip or rearrange individual pages.
+
+3. Maintain page order: Do not change the order of pages at any point during the scanning process. The original document
+   order must be preserved.
+
+4. Include blank pages: If your document has blank pages (e.g., the last page is blank), make sure to scan these as
+   well. Blank pages are crucial for maintaining the correct page count and order.
+
+5. Avoid manual reordering: Do not attempt to manually reorder the pages before or after scanning. The script is
+   designed to work with the specific order produced by the two-pass scanning process.
+
+6. Consistent scanning direction: Ensure that you feed the papers into the ADF in the same direction for both scanning
+   passes. The top of the document should enter the ADF first in both passes.
+
+7. Double-check page count: Before running the script, verify that the number of pages in your scanned PDF matches
+   exactly twice the number of sheets in your original document.
+
+8. Handle with care: Be gentle when handling the paper stack between scans to avoid accidentally changing the order or
+   orientation of the pages.
+
+Failure to follow these warnings may result in incorrectly ordered pages in the final PDF, which may require manual
+correction or rescanning of the entire document.
+
+## Using Brother iPrint&Scan App
+
+To scan your documents using the Brother DCP-T820DW printer and the Brother iPrint&Scan app, follow these steps:
+
+1. Launch the Brother iPrint&Scan app.
+
+2. On the main screen, click on the "Scan" icon.
+
+   <img src="images/app-screen-1.png" width="600" alt="Main Screen">
+
+3. In the Scan settings:
+    - Set "Scan Preset" to "Document"
+    - Choose your desired "Document Size" (e.g., A4)
+    - Set "Color Setting"
+    - Set "Resolution"
+
+   <img src="images/app-screen-2.png" width="600" alt="Scan Settings">
+
+4. Place your document in the Automatic Document Feeder (ADF) as described in the [Scanning Process](#scanning-process)
+   section of this README.
+
+5. Click the "Scan" button to begin scanning. This is the [First Pass (Odd Pages)](#first-pass-odd-pages).
+
+6. After scanning, you'll see a preview of your scanned pages. The first pass will show odd-numbered pages (e.g., 1, 3,
+   5).
+
+7. For the [Second Pass (Even Pages)](#second-pass-even-pages), flip the entire document stack as described in the
+   Scanning Process section.
+
+8. You should click on "Add Pages" to start scanning the second pass.
+
+   <img src="images/app-screen-3.png" width="600" alt="Scanned Preview">
+
+9. After completing the second pass, you'll have additional pages (e.g., 6, 4, 2) added to your document. The complete
+   file will now contain pages in the order: 1, 3, 5, 6, 4, 2. With both passes completed, click "Save to PC" in the
+   right sidebar.
+
+10. In the save dialog:
+    - Enter a filename
+    - Ensure the file type is set to PDF
+    - Choose your desired save location
+
+    <img src="images/app-screen-4.png" width="600" alt="Save Dialog">
+
+11. Click "Save" to save your scanned document.
+
+After completing both scanning passes, you'll have one PDF file with pages in the order: 1, 3, 5, 6, 4, 2. You can then
+use the Python script provided in this project to reorder these pages into the correct sequence.
+
+Remember to follow the warnings and instructions in the [Scanning Process](#scanning-process) and [Warnings](#warnings)
+sections of this README to ensure the best results.
 
 ### Running the Script
 
